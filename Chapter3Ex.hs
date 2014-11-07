@@ -23,7 +23,15 @@ module Chapter3Ex where
 2. What are the types of the following functions?
 -}
 
-second xs = head (tail xs)
+tail' :: [a] -> [a]
+tail' [] = error "empty"
+tail' (x : xs) = xs
+
+head' :: [a] -> a
+head' [] = error "empty"
+head' (x : xs) = x
+
+second xs = head' (tail' xs)
 -- second :: [a] -> a
 
 swap (x, y) = (y, x)
@@ -35,7 +43,11 @@ pair x y = (x, y)
 double x = x * 2
 -- double :: Num a => a -> a
 
-palindrome xs = reverse xs == xs
+reverse' :: [a] -> [a]
+reverse' [] = []
+reverse' (x : xs) = reverse xs ++ [x]
+
+palindrome xs = reverse' xs == xs
 -- palindrome :: Eq a => [a] -> Bool
 
 twice f x = f (f x)

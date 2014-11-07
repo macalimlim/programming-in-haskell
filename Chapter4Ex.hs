@@ -3,7 +3,7 @@ module Chapter4Ex where
 import           Prelude hiding ((&&), (||))
 
 {-
-1. Using library functions, define a function halve :: [ a ] → ([ a ], [ a ]) that
+1. Using library functions, define a function halve :: [ a ] -> ([ a ], [ a ]) that
 splits an even-lengthed list into two halves. For example:
 -}
 
@@ -123,3 +123,36 @@ mult'' z = \ x -> \ y -> x * y * z
 
 mult''' :: Num a => a -> a -> a -> a
 mult''' = \ x -> \ y -> \ z -> x * y * z
+
+{-
+
+function mult(x, y, z) {
+    return x * y * z;
+}
+
+
+function mult(y, z) {
+    return function(x) {
+        return x * y * z;
+    };
+}
+
+function mult(z) {
+    return function(x) {
+        return function(y) {
+            return x * y * z;
+        };
+    };
+}
+
+function mult() {
+    return function(x) {
+        return function(y) {
+            return function(z) {
+                return x * y * z;
+            };
+        };
+    };
+}
+
+-}
