@@ -10,7 +10,7 @@ Similarites with Set Comprehensions/Builder Notation in Mathematics
 
 -}
 
-a = [ x ^ 2 | x <- [1..5] ]
+a = [ x ^ 2 | x <- [0..9] ]
 
 b = [ (x, y) | x <- [1..3], y <- [4,5] ]
 
