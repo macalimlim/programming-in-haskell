@@ -7,7 +7,7 @@ import           Prelude hiding (and, concat, drop, elem, init, last, length,
 
 1. Define the exponentiation operator ^ for non-negative integers using the
 same pattern of recursion as the multiplication operator ∗, and show how
-2 ↑ 3 is evaluated using your definition.
+2 ^ 3 is evaluated using your definition.
 
 -}
 
@@ -258,8 +258,8 @@ halve xs = splitAt (length xs `div` 2) xs
 msort :: Ord a => [a] -> [a]
 msort []  = []
 msort [x] = [x]
-msort xs  = let (f, s) = halve xs
-            in merge f s
+msort xs  = merge (msort f) (msort s)
+            where (f, s) = halve xs
 
 {-
 
