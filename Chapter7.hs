@@ -21,6 +21,14 @@ add x y = x + y
 add' :: Int -> (Int -> Int)
 add' = \ x -> (\ y -> x + y)
 
+{-
+
+function add(x) {
+         return function(y) { return x + y;};
+}
+
+-}
+
 twice :: (a -> a) -> a -> a
 twice f x = f (f x)
 
@@ -363,6 +371,7 @@ length'' = length_ 0
 {-
 
 length [1, 2, 3]
+length_ 0 [1, 2, 3]
 length_ (0 + 1) [2, 3]
 length_ ((0 + 1) + 1) [3]
 length_ (((0 + 1) + 1) + 1) []
@@ -523,4 +532,4 @@ twice' :: (a -> a) -> a -> a
 twice' f = f . f
 
 sumSqrEven :: [Int] -> Int
-sumSqrEven = sum . map (+10) . filter even
+sumSqrEven = sum . map (^2) . filter even
