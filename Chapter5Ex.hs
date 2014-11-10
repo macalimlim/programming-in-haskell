@@ -9,6 +9,15 @@ module Chapter5Ex where
 
 sumOf100 = sum [x ^ 2 | x <- [1..100]]
 
+
+{-
+
+(for {
+      x <- List()
+} yield x ^ 2).sum()
+
+-}
+
 {-
 
 2. In a similar way to the function length , show how the library function
