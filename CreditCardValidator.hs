@@ -38,7 +38,8 @@ doubleEveryOther' ns = map (\ (f, s) -> if even f then s * 2 else s) $
 
 sumDigits :: [Integer] -> Integer
 sumDigits []  = 0
-sumDigits [x] = x
+sumDigits [x] | x > 9     = sumDigits $ toDigits x
+              | otherwise = x
 sumDigits ns  = foldr (\ x acc -> acc + sumDigits (toDigits x)) 0 ns
 
 -- Ex5
